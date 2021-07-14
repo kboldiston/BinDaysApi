@@ -16,7 +16,7 @@ namespace BinDaysApi
 {
     public class Startup
     {
-        // test
+        // test new test
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
