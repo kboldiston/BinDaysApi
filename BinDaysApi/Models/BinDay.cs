@@ -2,7 +2,7 @@ using System;
 
 namespace BinDaysApi.Models
 {
-    public class BinData
+    public class BinDay
     {
         public DateTime Date { get; set; }
 

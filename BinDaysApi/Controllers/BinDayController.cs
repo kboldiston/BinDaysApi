@@ -18,17 +18,17 @@ namespace BinDaysApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public BinData Get(long latitude, long longtitude)
-        {
-            return new BinData();
-        }
+        // [HttpGet]
+        // public BinData Get(long latitude, long longtitude)
+        // {
+        //     return new BinData();
+        // }
 
         [HttpGet]
-        public IEnumerable<BinData> Get()
+        public IEnumerable<BinDay> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new BinData
+            return Enumerable.Range(1, 5).Select(index => new BinDay
             {
                 Date = DateTime.Now.AddDays(index),
                 Type = BinTypes.GeneralWaste

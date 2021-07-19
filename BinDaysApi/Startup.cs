@@ -8,9 +8,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+using BinDaysApi.Contexts;
 
 namespace BinDaysApi
 {
@@ -27,12 +28,15 @@ namespace BinDaysApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BinDaysApi", Version = "v1" });
             });
+
+            services.AddDbContext<BinDaysDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("BinDaysDb")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
